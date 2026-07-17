@@ -1,0 +1,146 @@
+/* Base */
+body { margin: 0; color: #1f2933; line-height: 1.6; }
+img  { max-width: 100%; }
+
+/* Sticky navbar */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 14px 24px;
+  background: #0b1b2b;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.site-nav .brand {
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: .5px;
+  text-decoration: none;
+  color: #fff;
+  margin-right: auto;
+}
+.site-nav .brand span { color: #cd2e3a; }
+.nav-links {
+  display: flex;
+  gap: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a { color: #cdd6e0; text-decoration: none; font-weight: 500; }
+.nav-links a:hover { color: #fff; }
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  color: #fff;
+  background:
+    linear-gradient(rgba(8,17,30,.35), rgba(8,17,30,.55)),
+    url('img/hero.jpg') center / cover,
+    linear-gradient(160deg, #0b1e3f 0%, #163b63 45%, #b23a48 100%);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+}
+.hero h1 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  margin: 0 0 .3em;
+  letter-spacing: 2px;
+}
+.hero .kr { display: block; font-size: .4em; letter-spacing: 6px; opacity: .85; }
+.hero p { max-width: 640px; font-size: 1.15rem; margin: 0 auto; }
+.hero .scroll { margin-top: 40px; font-size: 1.8rem; opacity: .8; color:#fff; text-decoration:none; }
+
+/* Centered content column */
+.wrapper { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+.section { margin-bottom: 64px; }
+.section h2, .bs-heading {
+  font-size: 2rem;
+  color: #0b3d91;
+  border-bottom: 3px solid #cd2e3a;
+  padding-bottom: 8px;
+  display: inline-block;
+  margin-top: 0;
+}
+
+/* Region map grid */
+.korea-map {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "gyeonggi gyeonggi gangwon"
+    "jeolla   chungch  gangwon"
+    "jeolla   chungch  gyeongsang"
+    "jeolla   jeju     gyeongsang";
+  margin-top: 24px;
+}
+.region {
+  grid-area: auto;
+  padding: 18px;
+  min-height: 130px;
+  color: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.region h3 { margin: 0 0 4px; font-size: 1.1rem; }
+.region p  { margin: 0; font-size: .85rem; opacity: .92; }
+.region.gyeonggi   { grid-area: gyeonggi;   background: #0b3d91; }
+.region.gangwon    { grid-area: gangwon;    background: #1d6fb8; }
+.region.chungch    { grid-area: chungch;    background: #2f8f6b; }
+.region.jeolla     { grid-area: jeolla;     background: #b23a48; }
+.region.gyeongsang { grid-area: gyeongsang; background: #c9762a; }
+.region.jeju       { grid-area: jeju;       background: #6a4c93; }
+
+/* Buttons */
+.btn-primary {
+  --bs-btn-bg: #0b3d91;         --bs-btn-border-color: #0b3d91;
+  --bs-btn-hover-bg: #092f70;   --bs-btn-hover-border-color: #092f70;
+  --bs-btn-active-bg: #092f70;  --bs-btn-active-border-color: #092f70;
+}
+
+/* Footer */
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background: #0b1b2b;
+  color: #cdd6e0;
+  padding: 30px 24px;
+}
+.site-footer .brand { color: #fff; font-weight: 700; font-size: 1.1rem; }
+.site-footer .brand span { color: #cd2e3a; }
+.site-footer a { color: #cdd6e0; text-decoration: none; margin-left: 14px; }
+.site-footer a:hover { color: #fff; }
+
+/* Small screens */
+@media (max-width: 700px) {
+  .site-nav { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .site-nav .brand { margin-right: 0; }
+  .nav-links { flex-wrap: wrap; gap: 14px; }
+  .hero h1 { font-size: 2.4rem; }
+  .korea-map {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "gyeonggi"
+      "gangwon"
+      "chungch"
+      "jeolla"
+      "gyeongsang"
+      "jeju";
+  }
+  .site-footer { flex-direction: column; text-align: center; }
+  .site-footer a { margin: 0 7px; }
+}
