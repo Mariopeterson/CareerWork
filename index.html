@@ -45,6 +45,12 @@
          end the night in a glowing district of cafés, markets, and music.
          Four distinct seasons shape the rhythm of life here, from cherry-blossom
          springs to snow-dusted winters.</p>
+
+      <div class="fact-box">
+        <h3 class="h6">Did you know?</h3>
+        <p id="fact-text"></p>
+        <button id="fact-btn" class="btn btn-primary btn-sm">Show me another</button>
+      </div>
     </section>
 
     <section class="section" id="culture">
@@ -78,31 +84,14 @@
          the mainland regions (plus the island of Jeju), laid out with CSS Grid
          template areas:</p>
 
-      <div class="korea-map">
-        <div class="region gyeonggi">
-          <h3>Seoul &amp; Gyeonggi</h3>
-          <p>The capital region: palaces, markets, and the pulse of the nation.</p>
-        </div>
-        <div class="region gangwon">
-          <h3>Gangwon</h3>
-          <p>Alpine peaks and ski slopes; host of the 2018 Winter Olympics.</p>
-        </div>
-        <div class="region chungch">
-          <h3>Chungcheong</h3>
-          <p>The tranquil heartland of hot springs and heritage towns.</p>
-        </div>
-        <div class="region jeolla">
-          <h3>Jeolla</h3>
-          <p>The soul of Korean cuisine and the storytelling song of pansori.</p>
-        </div>
-        <div class="region gyeongsang">
-          <h3>Gyeongsang</h3>
-          <p>Ancient Silla capital Gyeongju and the seaside city of Busan.</p>
-        </div>
-        <div class="region jeju">
-          <h3>Jeju Island</h3>
-          <p>A volcanic isle of waterfalls, beaches, and haenyeo sea divers.</p>
-        </div>
+      <div class="korea-map" id="korea-map">
+        <!-- Region cards are built by script.js from the regions array (Exercises 2B & 3A) -->
+      </div>
+
+      <div class="region-explorer">
+        <label for="region-select" class="form-label fw-bold">Want a closer look? Pick a region:</label>
+        <select id="region-select" class="form-select"></select>
+        <div id="region-detail" class="region-detail"></div>
       </div>
     </section>
   </main>

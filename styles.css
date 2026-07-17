@@ -171,3 +171,27 @@ section[id], main [id] { scroll-margin-top: 70px; }
   margin-top: 12px;
   font-size: .9rem;
 }
+
+/* --- Exercise 2A: Did-you-know fact box --- */
+.fact-box {
+  margin-top: 24px;
+  padding: 16px 18px;
+  background: #f6f8fb;
+  border: 1px solid #dde5ef;
+  border-radius: 8px;
+}
+.fact-box h3 { color: #cd2e3a; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.fact-box p { margin: 0 0 12px; }
+
+/* --- Exercise 3B: region explorer --- */
+.region-explorer { margin-top: 28px; max-width: 560px; }
+.region-detail {
+  margin-top: 16px;
+  padding: 16px 18px;
+  border-left: 4px solid #0b3d91;
+  background: #f6f8fb;
+  border-radius: 0 8px 8px 0;
+}
+.region-detail h3 { margin: 0 0 6px; color: #0b3d91; font-size: 1.15rem; }
+.region-detail p { margin: 0 0 6px; }
+.region-detail .highlight { color: #cd2e3a; font-weight: 500; margin: 0; }
