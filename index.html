@@ -16,6 +16,7 @@
   <!-- Navbar -->
   <nav class="site-nav">
     <a href="#" class="brand">Discover <span>Korea</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
     <ul class="nav-links">
       <li><a href="#culture">Culture</a></li>
       <li><a href="#food">Food</a></li>
@@ -114,7 +115,7 @@
     <div class="row g-4">
       <div class="col-md-4">
         <div class="card h-100 shadow-sm">
-          <div class="card-body">
+          <div class="card-body" id="when-to-go">
             <h3 class="card-title h5">When to Go</h3>
             <p class="card-text">Spring paints the country in cherry blossoms,
               while autumn sets the mountains ablaze with color. Both are ideal
@@ -151,7 +152,7 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="brand">Discover <span>Korea</span></div>
-    <div class="copyright">&copy; 2026 Discover Korea</div>
+    <div class="copyright">&copy; <span id="year">2026</span> Discover Korea</div>
     <nav class="social">
       <a href="#">Instagram</a>
       <a href="#">YouTube</a>
