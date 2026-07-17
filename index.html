@@ -96,7 +96,7 @@
         <div class="tab-pane fade show active" id="tab-bbq" role="tabpanel">
           <p>Gather around a tabletop grill for <em>bulgogi</em> (marinated beef) or
              <em>samgyeopsal</em> (pork belly), wrapped in lettuce with garlic and
-             ssamjang. The grill is the centerpiece — cooking together is the point.</p>
+             ssamjang. The grill is the centerpiece; cooking together is the point.</p>
         </div>
         <div class="tab-pane fade" id="tab-street" role="tabpanel">
           <p>Night markets serve spicy <em>tteokbokki</em> rice cakes, crispy
@@ -104,7 +104,7 @@
              Seoul's Gwangjang Market is the classic place to start.</p>
         </div>
         <div class="tab-pane fade" id="tab-banchan" role="tabpanel">
-          <p>Every meal arrives with <em>banchan</em> — a constellation of small side
+          <p>Every meal arrives with <em>banchan</em>, a constellation of small side
              dishes led by <em>kimchi</em>. Stir a bowl of <em>bibimbap</em> together
              and you'll taste the whole philosophy: balance in every bite.</p>
         </div>
@@ -165,9 +165,8 @@
     <!-- Region map -->
     <section class="section" id="regions">
       <h2>Explore the Regions</h2>
-      <p>Each part of the peninsula has its own character. Here's a rough map of
-         the mainland regions (plus the island of Jeju), laid out with CSS Grid
-         template areas:</p>
+      <p>Each part of the peninsula has its own character. Here is a rough map
+         of the mainland regions, plus the island of Jeju:</p>
 
       <div class="korea-map" id="korea-map">
         <!-- Region cards are built by script.js from the regions array (Exercises 2B & 3A) -->
@@ -177,6 +176,38 @@
         <label for="region-select" class="form-label fw-bold">Want a closer look? Pick a region:</label>
         <select id="region-select" class="form-select"></select>
         <div id="region-detail" class="region-detail"></div>
+      </div>
+    </section>
+
+    <!-- Photo gallery with a click-to-enlarge lightbox -->
+    <section class="section" id="gallery">
+      <h2>Postcards from Korea</h2>
+      <p>Click any picture for a closer look.</p>
+      <div class="gallery-grid">
+        <figure>
+          <img src="img/seoul.jpg" alt="Seoul skyline at night" data-caption="Seoul at night, with N Seoul Tower above the skyline" loading="lazy">
+          <figcaption>Seoul Nights</figcaption>
+        </figure>
+        <figure>
+          <img src="img/jeju.jpg" alt="Jeju Island coast at sunset" data-caption="Sunset over the Jeju coast and Seongsan Ilchulbong" loading="lazy">
+          <figcaption>Jeju Coast</figcaption>
+        </figure>
+        <figure>
+          <img src="img/autumn.jpg" alt="Temple among autumn foliage" data-caption="A mountain temple wrapped in October color" loading="lazy">
+          <figcaption>Autumn Temples</figcaption>
+        </figure>
+        <figure>
+          <img src="img/winter.jpg" alt="Snowy mountain peaks in Gangwon" data-caption="Snowfall over the peaks of Gangwon" loading="lazy">
+          <figcaption>Gangwon Winter</figcaption>
+        </figure>
+        <figure>
+          <img src="img/food.jpg" alt="Korean BBQ table with side dishes" data-caption="A Korean BBQ table ringed with banchan" loading="lazy">
+          <figcaption>The Table</figcaption>
+        </figure>
+        <figure>
+          <img src="img/palace.jpg" alt="Palace gate at dusk" data-caption="A palace gate glowing at dusk" loading="lazy">
+          <figcaption>Palace at Dusk</figcaption>
+        </figure>
       </div>
     </section>
   </main>

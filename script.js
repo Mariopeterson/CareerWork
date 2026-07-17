@@ -1,5 +1,5 @@
 // ============================================================
-// Discover Korea — script.js
+// Discover Korea: script.js
 // Built alongside Noble Desktop "JavaScript for Front-End"
 // ============================================================
 
@@ -16,13 +16,13 @@ yearSpan.textContent = today.getFullYear();
 const month = today.getMonth() + 1; // getMonth() is 0-11
 let seasonNote;
 if (month >= 3 && month <= 5) {
-  seasonNote = "🌸 Right now it's spring — cherry blossom season is here!";
+  seasonNote = "🌸 Right now it's spring: cherry blossom season is here!";
 } else if (month >= 6 && month <= 8) {
-  seasonNote = "☀️ Right now it's summer — beach weather on Jeju and festivals everywhere.";
+  seasonNote = "☀️ Right now it's summer: beach weather on Jeju and festivals everywhere.";
 } else if (month >= 9 && month <= 11) {
-  seasonNote = "🍁 Right now it's autumn — the mountains are ablaze with fall color.";
+  seasonNote = "🍁 Right now it's autumn: the mountains are ablaze with fall color.";
 } else {
-  seasonNote = "❄️ Right now it's winter — ski season in Gangwon and steaming street food.";
+  seasonNote = "❄️ Right now it's winter: ski season in Gangwon and steaming street food.";
 }
 const noteEl = document.createElement("p");
 noteEl.className = "season-note";
@@ -55,10 +55,10 @@ pageLinks.forEach(function (link) {
 
 // ----- Exercise 2A: Arrays, the Math Object, & a Random Fact -----
 const koreaFacts = [
-  "Hangeul, the Korean alphabet, has just 24 letters — designed in 1443 so that anyone could learn to read.",
+  "Hangeul, the Korean alphabet, has just 24 letters, designed in 1443 so that anyone could learn to read.",
   "The KTX high-speed train covers Seoul to Busan (about 325 km) in under 3 hours.",
   "Kimchi has more than 200 documented regional varieties.",
-  "Jeju Island's haenyeo — free-diving women — harvest seafood well into their 80s.",
+  "Jeju Island's haenyeo, its famous free-diving women, harvest seafood well into their 80s.",
   "South Korea has one of the world's fastest average internet speeds.",
   "Taekwondo, Korea's national martial art, is practiced in more than 200 countries.",
   "Seoul's subway system carries roughly 7 million passengers every day.",
@@ -87,7 +87,7 @@ const regions = [
     highlight: "Don't miss: Onyang's hot springs and the Baekje-era sites of Buyeo." },
   { className: "jeolla", name: "Jeolla",
     desc: "The soul of Korean cuisine and the storytelling song of pansori.",
-    highlight: "Don't miss: Jeonju Hanok Village — the birthplace of bibimbap." },
+    highlight: "Don't miss: Jeonju Hanok Village, the birthplace of bibimbap." },
   { className: "gyeongsang", name: "Gyeongsang",
     desc: "Ancient Silla capital Gyeongju and the seaside city of Busan.",
     highlight: "Don't miss: Bulguksa Temple in Gyeongju and Busan's Haeundae Beach." },
@@ -133,6 +133,34 @@ function showRegionDetail() {
 }
 regionSelect.addEventListener("change", showRegionDetail);
 showRegionDetail(); // populate with the first region on load
+
+// ----- Photo gallery lightbox (click an image to enlarge it) -----
+const galleryImages = document.querySelectorAll(".gallery-grid img");
+const lightbox = document.createElement("div");
+lightbox.className = "lightbox";
+lightbox.innerHTML = '<img alt=""><p class="lightbox-caption"></p>';
+document.body.appendChild(lightbox);
+
+const lightboxImg = lightbox.querySelector("img");
+const lightboxCaption = lightbox.querySelector(".lightbox-caption");
+
+function openLightbox(event) {
+  const clicked = event.currentTarget;
+  lightboxImg.src = clicked.src;
+  lightboxImg.alt = clicked.alt;
+  lightboxCaption.textContent = clicked.dataset.caption || clicked.alt;
+  lightbox.classList.add("open");
+}
+function closeLightbox() {
+  lightbox.classList.remove("open");
+}
+galleryImages.forEach(function (img) {
+  img.addEventListener("click", openLightbox);
+});
+lightbox.addEventListener("click", closeLightbox);
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") closeLightbox();
+});
 
 // ============================================================
 // GSAP animations (Exercises 4B - 6C, B1)
