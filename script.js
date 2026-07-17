@@ -133,3 +133,60 @@ function showRegionDetail() {
 }
 regionSelect.addEventListener("change", showRegionDetail);
 showRegionDetail(); // populate with the first region on load
+
+// ============================================================
+// GSAP animations (Exercises 4B - 6C, B1)
+// ============================================================
+
+// Safety net: if the GSAP CDN failed to load, un-hide the hero and skip
+// all animation code so the page still works perfectly without it.
+if (typeof gsap === "undefined") {
+  document.documentElement.classList.remove("js");
+} else {
+
+// ----- Exercises 4B & 4C: Tweens & a Timeline for the hero -----
+// A timeline plays each tween in sequence; position offsets like "-=0.4"
+// overlap them slightly so the entrance feels fluid.
+const heroTimeline = gsap.timeline({ defaults: { ease: "power2.out", duration: 0.8 } });
+heroTimeline
+  .from(".hero h1", { y: 50, autoAlpha: 0 })
+  .from(".hero p", { y: 30, autoAlpha: 0 }, "-=0.4")
+  .from(".hero .scroll", { y: -20, autoAlpha: 0, duration: 0.5 }, "-=0.3");
+
+// ----- Exercise 6A: ScrollTrigger setup -----
+gsap.registerPlugin(ScrollTrigger);
+
+// ----- Exercise B1: different animations for different screen sizes -----
+const mm = gsap.matchMedia();
+
+mm.add("(min-width: 700px)", function () {
+  // 6A: each content section fades up as it scrolls into view
+  const revealSections = gsap.utils.toArray("main .section, #visit");
+  revealSections.forEach(function (sec) {
+    gsap.from(sec, {
+      y: 40,
+      autoAlpha: 0,
+      duration: 0.7,
+      scrollTrigger: { trigger: sec, start: "top 80%" }
+    });
+  });
+
+  // 6B: region cards slide in from alternating directions
+  gsap.utils.toArray(".region").forEach(function (card, index) {
+    gsap.from(card, {
+      x: index % 2 === 0 ? -60 : 60,
+      autoAlpha: 0,
+      duration: 0.6,
+      scrollTrigger: { trigger: card, start: "top 85%" }
+    });
+  });
+
+  // 6C: parallax - hero text drifts upward slower than the scroll
+  gsap.to(".hero h1", {
+    yPercent: -40,
+    ease: "none",
+    scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
+  });
+});
+
+} // end GSAP guard

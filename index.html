@@ -10,6 +10,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Exercise 5C: mark that JS is available ASAP so CSS can pre-hide animated
+       elements without breaking the page for no-JS visitors -->
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
 
@@ -231,6 +235,9 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Exercise 4B: GSAP (GreenSock Animation Platform) + ScrollTrigger plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

@@ -220,3 +220,14 @@ section[id], main [id] { scroll-margin-top: 70px; }
 .glimpse-autumn { background: linear-gradient(150deg, #7a1e2b 0%, #b23a48 50%, #c9762a 100%); }
 .glimpse-winter { background: linear-gradient(150deg, #24344d 0%, #4a6e9c 55%, #9db6d0 100%); }
 #korea-carousel { border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(11,27,43,.18); }
+
+/* --- Exercise 5C: prevent flash of un-animated content (hero) ---
+   These start hidden ONLY when JS is available (html.js is set in <head>);
+   GSAP's autoAlpha reveals them. No-JS visitors still see everything. */
+.js .hero h1,
+.js .hero p,
+.js .hero .scroll { visibility: hidden; }
+
+/* --- Exercise 6B: fix unwanted horizontal scrolling caused by
+   elements animating in from off-screen --- */
+html, body { overflow-x: hidden; }
