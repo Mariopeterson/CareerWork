@@ -195,3 +195,28 @@ section[id], main [id] { scroll-margin-top: 70px; }
 .region-detail h3 { margin: 0 0 6px; color: #0b3d91; font-size: 1.15rem; }
 .region-detail p { margin: 0 0 6px; }
 .region-detail .highlight { color: #cd2e3a; font-weight: 500; margin: 0; }
+
+/* --- Exercise 3C: food tabs --- */
+.food-tab-content { padding: 18px 4px 0; }
+.food-tab-content p { margin: 0; }
+
+/* --- Exercise 4A: Glimpses of Korea carousel --- */
+.glimpse-slide {
+  height: 380px;
+  border-radius: 12px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+}
+.glimpse-kr { font-size: 3rem; letter-spacing: 12px; opacity: .35; font-weight: 700; }
+.glimpse-slide h3 { font-family: Georgia, 'Times New Roman', serif; font-size: 2rem; margin: 8px 0 6px; }
+.glimpse-slide p { max-width: 480px; margin: 0; opacity: .9; }
+.glimpse-seoul  { background: linear-gradient(150deg, #0b1b2b 0%, #0b3d91 60%, #1d6fb8 100%); }
+.glimpse-jeju   { background: linear-gradient(150deg, #0f4c5c 0%, #2f8f6b 55%, #6a4c93 100%); }
+.glimpse-autumn { background: linear-gradient(150deg, #7a1e2b 0%, #b23a48 50%, #c9762a 100%); }
+.glimpse-winter { background: linear-gradient(150deg, #24344d 0%, #4a6e9c 55%, #9db6d0 100%); }
+#korea-carousel { border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(11,27,43,.18); }

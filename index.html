@@ -75,6 +75,87 @@
          Korean BBQ table, a colorful bowl of <em>bibimbap</em>, or a paper cup of
          spicy <em>tteokbokki</em> from a bustling street stall. Every bite is a mix
          of heat, tang, and comfort.</p>
+
+      <!-- Exercise 3C: tabbed sections using a JS library (Bootstrap tabs) -->
+      <ul class="nav nav-tabs mt-4" id="food-tabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-bbq" type="button" role="tab">Korean BBQ</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-street" type="button" role="tab">Street Food</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-banchan" type="button" role="tab">Banchan &amp; Staples</button>
+        </li>
+      </ul>
+      <div class="tab-content food-tab-content">
+        <div class="tab-pane fade show active" id="tab-bbq" role="tabpanel">
+          <p>Gather around a tabletop grill for <em>bulgogi</em> (marinated beef) or
+             <em>samgyeopsal</em> (pork belly), wrapped in lettuce with garlic and
+             ssamjang. The grill is the centerpiece — cooking together is the point.</p>
+        </div>
+        <div class="tab-pane fade" id="tab-street" role="tabpanel">
+          <p>Night markets serve spicy <em>tteokbokki</em> rice cakes, crispy
+             <em>hotteok</em> pancakes, and seaweed-wrapped <em>gimbap</em> rolls.
+             Seoul's Gwangjang Market is the classic place to start.</p>
+        </div>
+        <div class="tab-pane fade" id="tab-banchan" role="tabpanel">
+          <p>Every meal arrives with <em>banchan</em> — a constellation of small side
+             dishes led by <em>kimchi</em>. Stir a bowl of <em>bibimbap</em> together
+             and you'll taste the whole philosophy: balance in every bite.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exercise 4A: slideshow/carousel using a JS library (Bootstrap carousel) -->
+    <section class="section" id="glimpses">
+      <h2>Glimpses of Korea</h2>
+      <div id="korea-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4500">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#korea-carousel" data-bs-slide-to="0" class="active" aria-label="Seoul nights"></button>
+          <button type="button" data-bs-target="#korea-carousel" data-bs-slide-to="1" aria-label="Jeju coast"></button>
+          <button type="button" data-bs-target="#korea-carousel" data-bs-slide-to="2" aria-label="Autumn temples"></button>
+          <button type="button" data-bs-target="#korea-carousel" data-bs-slide-to="3" aria-label="Gangwon winter"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="glimpse-slide glimpse-seoul">
+              <span class="glimpse-kr">서울</span>
+              <h3>Seoul Nights</h3>
+              <p>Neon districts, midnight markets, and a skyline that never sleeps.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="glimpse-slide glimpse-jeju">
+              <span class="glimpse-kr">제주</span>
+              <h3>Jeju Coast</h3>
+              <p>Volcanic cliffs, emerald water, and the songs of the haenyeo divers.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="glimpse-slide glimpse-autumn">
+              <span class="glimpse-kr">단풍</span>
+              <h3>Autumn Temples</h3>
+              <p>Mountain monasteries wrapped in crimson and gold every October.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="glimpse-slide glimpse-winter">
+              <span class="glimpse-kr">겨울</span>
+              <h3>Gangwon Winter</h3>
+              <p>Powder slopes and quiet snowfall in the alpine east.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#korea-carousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#korea-carousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </section>
 
     <!-- Region map -->
