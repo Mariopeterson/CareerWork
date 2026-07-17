@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover Korea: a single-page guide to the culture, food, and regions of South Korea.">
+  <title>Discover Korea</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* Base */
+    body { margin: 0; color: #1f2933; line-height: 1.6; }
+    img  { max-width: 100%; }
+
+    /* Sticky navbar */
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 14px 24px;
+      background: #0b1b2b;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .site-nav .brand {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: .5px;
+      text-decoration: none;
+      color: #fff;
+      margin-right: auto;
+    }
+    .site-nav .brand span { color: #cd2e3a; }
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a { color: #cdd6e0; text-decoration: none; font-weight: 500; }
+    .nav-links a:hover { color: #fff; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      color: #fff;
+      background:
+        linear-gradient(rgba(8,17,30,.35), rgba(8,17,30,.55)),
+        url('img/hero.jpg') center / cover,
+        linear-gradient(160deg, #0b1e3f 0%, #163b63 45%, #b23a48 100%);
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .hero h1 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      margin: 0 0 .3em;
+      letter-spacing: 2px;
+    }
+    .hero .kr { display: block; font-size: .4em; letter-spacing: 6px; opacity: .85; }
+    .hero p { max-width: 640px; font-size: 1.15rem; margin: 0 auto; }
+    .hero .scroll { margin-top: 40px; font-size: 1.8rem; opacity: .8; color:#fff; text-decoration:none; }
+
+    /* Centered content column */
+    .wrapper { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+    .section { margin-bottom: 64px; }
+    .section h2, .bs-heading {
+      font-size: 2rem;
+      color: #0b3d91;
+      border-bottom: 3px solid #cd2e3a;
+      padding-bottom: 8px;
+      display: inline-block;
+      margin-top: 0;
+    }
+
+    /* Region map grid */
+    .korea-map {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas:
+        "gyeonggi gyeonggi gangwon"
+        "jeolla   chungch  gangwon"
+        "jeolla   chungch  gyeongsang"
+        "jeolla   jeju     gyeongsang";
+      margin-top: 24px;
+    }
+    .region {
+      grid-area: auto;
+      padding: 18px;
+      min-height: 130px;
+      color: #fff;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .region h3 { margin: 0 0 4px; font-size: 1.1rem; }
+    .region p  { margin: 0; font-size: .85rem; opacity: .92; }
+    .region.gyeonggi   { grid-area: gyeonggi;   background: #0b3d91; }
+    .region.gangwon    { grid-area: gangwon;    background: #1d6fb8; }
+    .region.chungch    { grid-area: chungch;    background: #2f8f6b; }
+    .region.jeolla     { grid-area: jeolla;     background: #b23a48; }
+    .region.gyeongsang { grid-area: gyeongsang; background: #c9762a; }
+    .region.jeju       { grid-area: jeju;       background: #6a4c93; }
+
+    /* Buttons */
+    .btn-primary {
+      --bs-btn-bg: #0b3d91;         --bs-btn-border-color: #0b3d91;
+      --bs-btn-hover-bg: #092f70;   --bs-btn-hover-border-color: #092f70;
+      --bs-btn-active-bg: #092f70;  --bs-btn-active-border-color: #092f70;
+    }
+
+    /* Footer */
+    .site-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      background: #0b1b2b;
+      color: #cdd6e0;
+      padding: 30px 24px;
+    }
+    .site-footer .brand { color: #fff; font-weight: 700; font-size: 1.1rem; }
+    .site-footer .brand span { color: #cd2e3a; }
+    .site-footer a { color: #cdd6e0; text-decoration: none; margin-left: 14px; }
+    .site-footer a:hover { color: #fff; }
+
+    /* Small screens */
+    @media (max-width: 700px) {
+      .site-nav { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .site-nav .brand { margin-right: 0; }
+      .nav-links { flex-wrap: wrap; gap: 14px; }
+      .hero h1 { font-size: 2.4rem; }
+      .korea-map {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "gyeonggi"
+          "gangwon"
+          "chungch"
+          "jeolla"
+          "gyeongsang"
+          "jeju";
+      }
+      .site-footer { flex-direction: column; text-align: center; }
+      .site-footer a { margin: 0 7px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="site-nav">
+    <a href="#" class="brand">Discover <span>Korea</span></a>
+    <ul class="nav-links">
+      <li><a href="#culture">Culture</a></li>
+      <li><a href="#food">Food</a></li>
+      <li><a href="#regions">Regions</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <h1>Discover Korea<span class="kr">대한민국</span></h1>
+    <p>Land of the Morning Calm, where ancient palaces, mountain temples,
+       and neon-lit streets share the same skyline.</p>
+    <a href="#intro" class="scroll" aria-label="Scroll down">&#8595;</a>
+  </header>
+
+  <!-- Main content -->
+  <main class="wrapper">
+
+    <section class="section" id="intro">
+      <h2>An Ancient Land, a Modern Heartbeat</h2>
+      <p>South Korea sits on a mountainous peninsula in East Asia, home to
+         roughly 51 million people and one of the world's most dynamic cultures.
+         In a single day you can wander a 600-year-old palace in the morning,
+         ride a high-speed train through terraced rice fields by afternoon, and
+         end the night in a glowing district of cafés, markets, and music.
+         Four distinct seasons shape the rhythm of life here, from cherry-blossom
+         springs to snow-dusted winters.</p>
+    </section>
+
+    <section class="section" id="culture">
+      <h2>Culture &amp; Heritage</h2>
+      <p>Korean culture blends deep tradition with a global creative wave. The
+         Korean alphabet, <em>Hangeul</em>, was created in 1443 by King Sejong the
+         Great to make reading and writing available to everyone, and it is still
+         celebrated as one of the most logical writing systems ever designed.</p>
+      <p>Visitors can walk the grounds of Seoul's five grand palaces, led by the
+         majestic <em>Gyeongbokgung</em>, or slip on a flowing <em>hanbok</em> for
+         the day. Meanwhile, K-pop, K-dramas, and award-winning films like
+         <em>Parasite</em> have carried Korean storytelling to every corner of the
+         world.</p>
+    </section>
+
+    <section class="section" id="food">
+      <h2>A Feast for the Senses</h2>
+      <p>Korean food is built for sharing. A single meal arrives surrounded by
+         <em>banchan</em>, small side dishes that change with the season, anchored
+         by staples like <em>kimchi</em>, the country's beloved fermented cabbage.
+         Try a sizzling plate of <em>bulgogi</em> or <em>samgyeopsal</em> at a
+         Korean BBQ table, a colorful bowl of <em>bibimbap</em>, or a paper cup of
+         spicy <em>tteokbokki</em> from a bustling street stall. Every bite is a mix
+         of heat, tang, and comfort.</p>
+    </section>
+
+    <!-- Region map -->
+    <section class="section" id="regions">
+      <h2>Explore the Regions</h2>
+      <p>Each part of the peninsula has its own character. Here's a rough map of
+         the mainland regions (plus the island of Jeju), laid out with CSS Grid
+         template areas:</p>
+
+      <div class="korea-map">
+        <div class="region gyeonggi">
+          <h3>Seoul &amp; Gyeonggi</h3>
+          <p>The capital region: palaces, markets, and the pulse of the nation.</p>
+        </div>
+        <div class="region gangwon">
+          <h3>Gangwon</h3>
+          <p>Alpine peaks and ski slopes; host of the 2018 Winter Olympics.</p>
+        </div>
+        <div class="region chungch">
+          <h3>Chungcheong</h3>
+          <p>The tranquil heartland of hot springs and heritage towns.</p>
+        </div>
+        <div class="region jeolla">
+          <h3>Jeolla</h3>
+          <p>The soul of Korean cuisine and the storytelling song of pansori.</p>
+        </div>
+        <div class="region gyeongsang">
+          <h3>Gyeongsang</h3>
+          <p>Ancient Silla capital Gyeongju and the seaside city of Busan.</p>
+        </div>
+        <div class="region jeju">
+          <h3>Jeju Island</h3>
+          <p>A volcanic isle of waterfalls, beaches, and haenyeo sea divers.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Plan your visit -->
+  <section class="container my-5" id="visit">
+    <h2 class="bs-heading">Plan Your Visit</h2>
+    <p class="text-muted">A few things worth knowing before you go.</p>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title h5">When to Go</h3>
+            <p class="card-text">Spring paints the country in cherry blossoms,
+              while autumn sets the mountains ablaze with color. Both are ideal
+              seasons to travel.</p>
+            <a href="#" class="btn btn-primary">Best seasons</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title h5">Getting Around</h3>
+            <p class="card-text">The KTX high-speed rail links major cities in a
+              flash, and a single rechargeable T-money card covers subways, buses,
+              and even taxis.</p>
+            <a href="#" class="btn btn-primary">Transit tips</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title h5">Local Etiquette</h3>
+            <p class="card-text">Bow slightly to greet, remove your shoes indoors,
+              and offer or receive items with two hands. Small gestures go a long
+              way here.</p>
+            <a href="#" class="btn btn-primary">Good manners</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="brand">Discover <span>Korea</span></div>
+    <div class="copyright">&copy; 2026 Discover Korea</div>
+    <nav class="social">
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+      <a href="#">KakaoTalk</a>
+    </nav>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
